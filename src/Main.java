@@ -22,8 +22,8 @@ public class Main {
         Director director1 = new Director("Rasul ", "Akun");
         Director director2 = new Director("Ruslan", "Akun");
         Movie m = new Movie();
-        Movie movie = new Movie("AkyrkySabak", 2022, "Education", director1, cast1);
-        Movie movie2 = new Movie("KokBoru", 2021, "Sport", director2, cast2);
+        Movie movie = new Movie("AkyrkySabak", 2022, "Education", director1, casts1);
+        Movie movie2 = new Movie("KokBoru", 2021, "Sport", director2, casts2);
         Movie[] movies = {movie, movie2};
         for (Movie v:movies) {
 

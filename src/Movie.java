@@ -6,9 +6,9 @@ public class Movie  implements Findable{
      private int year;
      private String description;
      private Director director;
-     private Cast casts;
+     private Cast []casts;
 
-     public Movie(String name, int year, String description, Director director, Cast casts) {
+     public Movie(String name, int year, String description, Director director, Cast[] casts) {
 
           this.name = name;
           this.year = year;
@@ -52,11 +52,11 @@ public class Movie  implements Findable{
           this.director = director;
      }
 
-     public Cast getCasts() {
+     public Cast[] getCasts() {
           return casts;
      }
 
-     public void setCasts(Cast casts) {
+     public void setCasts(Cast []casts) {
           this.casts = casts;
      }
 
@@ -87,10 +87,12 @@ public class Movie  implements Findable{
           System.out.println("Input actor name");
           String name=scanner.next();
           for (Movie act:movies) {
-               if(name.equals(act.casts.getActorFullName())){
-                    System.out.println("Movie:"+act);
-
+               for (Cast c:act.casts) {
+                    if(name.equals(c.getActorFullName())){
+                         System.out.println(act);
+                    }
                }
+
           }
      }
 
@@ -138,9 +140,11 @@ public class Movie  implements Findable{
           System.out.println("Input role");
           String name= scanner.next();
           for (Movie rol: movies) {
-              if(name.equals(rol.casts.getRole())){
-                   System.out.println("Movie:"+rol);
-              }
+               for (Cast r:rol.casts) {
+                    if (name.equals(r.getRole())) {
+                         System.out.println("Movie:" + rol);
+                    }
+               }
           }
      }
 
@@ -151,8 +155,7 @@ public class Movie  implements Findable{
                   ", year=" + year +
                   ", description='" + description + '\'' +
                   ", director=" + director +
-                  ", casts=" + casts +
+                  ", casts=" + Arrays.toString(casts) +
                   '}';
      }
-
 }
